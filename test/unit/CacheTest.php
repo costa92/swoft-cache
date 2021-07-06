@@ -60,6 +60,6 @@ class CacheTest extends TestCase
     public function testUserService()
     {
         $userService = new UserService();
-        $userService->cache3(11);
+        $userService->cache2(111);
     }
 }

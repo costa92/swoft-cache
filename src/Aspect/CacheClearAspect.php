@@ -52,6 +52,8 @@ class CacheClearAspect
 
         $has = CacheRegister::has($className, $methodName, 'cacheClear');
 
+        $key = "";
+        $position  = "";
         if ($has) {
             [$key, $position] = CacheRegister::get($className, $methodName, 'cacheClear');
             $prefix = $key ? '' : "$className@$methodName";
@@ -68,4 +70,5 @@ class CacheClearAspect
         }
         return $result;
     }
+
 }

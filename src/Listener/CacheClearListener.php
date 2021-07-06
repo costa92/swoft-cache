@@ -5,8 +5,9 @@
  * Email:longqiuhong@163.com
  */
 
-namespace Costalong\Swoft\Cache;
+namespace Costalong\Swoft\Cache\Listener;
 
+use Costalong\Swoft\Cache\Cache;
 use Costalong\Swoft\Cache\Register\CacheRegister;
 use Swoft\Event\Annotation\Mapping\Listener;
 use Swoft\Event\EventHandlerInterface;

@@ -6,6 +6,7 @@
  */
 namespace Costalong\Swoft\CacheTest\Testing;
 use Costalong\Swoft\Cache\Annotation\Mapping\CacheClear;
+use Costalong\Swoft\Cache\Annotation\Mapping\CachePut;
 
 /**
  * Class UserService
@@ -14,13 +15,13 @@ use Costalong\Swoft\Cache\Annotation\Mapping\CacheClear;
 class UserService
 {
     /**
-     * 每次都触发清除缓存
-     * position标识清除操作的位置，执行前或执行后
+     * 每次都触发写入缓存
+     * 当clearListener不为空，调用此事件则清除缓存
      *
-     * @CacheClear(position=Cache::ASP_AFTER)
+     * @CachePut(ttl=3000,key="cache1_#{id}", clearListener="CACHE_CLEAR")
      */
-    public function cache3($id)
+    public function cache2($id)
     {
-       var_dump($id);
+        return $id;
     }
 }
