@@ -1,0 +1,39 @@
+{
+  "name": "costalong/swoft-cache",
+  "type": "library",
+  "keywords": [
+    "swoole",
+    "swoft",
+    "swoft-component"
+  ],
+  "description": "swoft-cache component for swoft framework",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">7.1",
+    "psr/simple-cache": "^1.0.0",
+    "swoft/serialize": "~2.0.0",
+    "swoft/stdlib": "~2.0.0",
+    "swoft/swlib": "~2.0.0",
+    "swoft/framework": "~2.0.0",
+    "swoft/redis": "2.0.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Costalong\\Swoft\\Cache\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Costalong\\Swoft\\CacheTest\\Unit\\": "test/unit/",
+      "Costalong\\Swoft\\CacheTest\\Testing\\": "test/testing/",
+      "SwoftTest\\Unit\\": "vendor/swoft/framework/test/unit/",
+      "SwoftTest\\Testing\\": "vendor/swoft/framework/test/testing/"
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit -c phpunit.xml"
+  }
+}
