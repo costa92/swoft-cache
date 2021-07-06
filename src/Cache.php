@@ -47,10 +47,13 @@ final class Cache
     public const SERIALIZER = 'cacheSerializer';
 
     public const CLEAR_EVENT = 'cache.event.clear';
-
+    public const SET_KEY_EVENT = 'set.key.event';
 
     public const ASP_BEFORE = 'before';
     public const ASP_AFTER = 'after';
+
+
+
 
     /**
      * @return CacheManager

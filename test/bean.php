@@ -25,9 +25,10 @@ return [
         'lockAdapter' => Cache::LOCK
     ],
     Cache::ADAPTER    => [
-        'class'      => RedisAdapter::class,
-        'serializer' => bean(Cache::SERIALIZER),
-        'redis' => bean('redis.pool'),
+        'class'       => RedisAdapter::class,
+        'serializer'  => bean(Cache::SERIALIZER),
+        'redis'       => bean('redis.pool'),
+        'setKey'      => \Costalong\Swoft\Cache\Handle\SetKeyListener\SetKeyLogs::class
     ],
     //cache原子锁配置
     Cache::LOCK => [

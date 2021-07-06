@@ -50,7 +50,6 @@ class CacheTest extends TestCase
         $value = Cache::remember('users', 30, function () {
            return 111;
         });
-        var_dump($value);
 
 
         //数据永久存储  需要调用delete清除

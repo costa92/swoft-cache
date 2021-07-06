@@ -2,7 +2,10 @@
 
 namespace Costalong\Swoft\Cache\Adapter;
 
+use Costalong\Swoft\Cache\Cache;
 use Costalong\Swoft\Cache\Concern\AbstractAdapter;
+use Costalong\Swoft\Cache\Handle\SetKeyListener\SetKeyLogs;
+use Swoft;
 use Swoft\Redis\Pool;
 use function class_exists;
 use function count;
@@ -25,6 +28,16 @@ class RedisAdapter extends AbstractAdapter
      * @var string
      */
     protected $prefix = 'swoft_cache:';
+
+    /**
+     * @var string
+     */
+    protected $setKey= SetKeyLogs::class;
+
+    /**
+     * @var bool
+     */
+    protected $openListener = false;
 
     /**
      * @return bool
@@ -64,6 +77,13 @@ class RedisAdapter extends AbstractAdapter
         $cacheKey = $this->getCacheKey($key);
         $ttl   = $this->formatTTL($ttl);
         $value = $this->getSerializer()->serialize($value);
+
+        // 开启监听
+        if ($this->openListener){
+            Swoft::trigger(Cache::SET_KEY_EVENT, 'target', $key, $value,$this->redis->getRedisDb(),$this->setKey);
+        }
+
+        // 写入 redis
         if ($ttl > 0){
             return $this->redis->set($cacheKey, $value, $ttl);
         }
