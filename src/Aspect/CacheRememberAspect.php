@@ -5,27 +5,24 @@
  * Email:longqiuhong@163.com
  */
 
-namespace Costalong\Swoft\Cache\Annotation\Parser;
-
+namespace Costalong\Swoft\Cache\Aspect;
 
 use Costalong\Swoft\Cache\CacheManager;
 use Costalong\Swoft\Cache\Register\CacheRegister;
 use Swoft;
 use Swoft\Aop\Annotation\Mapping\Around;
+use Swoft\Aop\Annotation\Mapping\Aspect;
 use Swoft\Aop\Annotation\Mapping\PointAnnotation;
+use Costalong\Swoft\Cache\Annotation\Mapping\CacheRemember;
 use Swoft\Aop\Point\ProceedingJoinPoint;
 use Swoft\Bean\Annotation\Mapping\Inject;
 use Throwable;
-use Swoft\Aop\Annotation\Mapping\Aspect;
-use Costalong\Swoft\Cache\Annotation\Mapping\CacheRemember;
 
 /**
  * Class CacheRememberAspect
- * @package Costalong\Swoft\Cache\Annotation\Parser
+ * @package Costalong\Swoft\Cache\Aspect
  * @since 2.0
- *
  * @Aspect(order=1)
- *
  * @PointAnnotation(include={CacheRemember::class})
  */
 class CacheRememberAspect
