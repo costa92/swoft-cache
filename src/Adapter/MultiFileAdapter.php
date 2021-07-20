@@ -216,4 +216,9 @@ class MultiFileAdapter extends AbstractAdapter
     {
         $this->savePath = $savePath;
     }
+
+    public function expire($key, $ttl = null): bool
+    {
+        // TODO: Implement expire() method.
+    }
 }

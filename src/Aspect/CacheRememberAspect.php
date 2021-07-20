@@ -31,7 +31,7 @@ class CacheRememberAspect
      * @Inject()
      * @var CacheManager
      */
-    private $redis;
+    protected $redis;
 
     /**
      * @Around()

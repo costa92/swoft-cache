@@ -28,7 +28,7 @@ class CacheTest extends TestCase
     public function testCeche()
     {
 //        var_dump(Cache::clear());
-////        Cache::set("test",111,100);
+        Cache::set("test",111,100);
 //        var_dump("获取：".Cache::get("test"));
 //        var_dump( "删除:".Cache::delete("test") == true);
 //        var_dump( Cache::get("test"));
@@ -38,10 +38,13 @@ class CacheTest extends TestCase
 //            Cache::lock('foo')->release();
 //        }
 
-        Cache::lock('foo', 10)->block(5, function () {
+        var_dump( Cache::expire("test",100));
+
+
+//        Cache::lock('foo', 10)->block(5, function () {
             // 等待最多5秒后获取锁定...
             return false;
-        });
+//        });
 
     }
 
@@ -60,5 +63,8 @@ class CacheTest extends TestCase
     {
         $userService = new UserService();
         $userService->cache2(111);
+
+
+
     }
 }

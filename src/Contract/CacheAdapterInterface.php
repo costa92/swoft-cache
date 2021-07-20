@@ -57,4 +57,11 @@ interface CacheAdapterInterface extends CacheInterface
      */
     public function clear(): bool;
 
+    /**
+     * @param $key
+     * @param null $ttl
+     * @return bool
+     */
+    public function expire($key,$ttl = null): bool;
+
 }

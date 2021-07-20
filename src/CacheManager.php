@@ -26,7 +26,7 @@ class CacheManager implements CacheInterface
      *
      * @var CacheAdapterInterface
      */
-    private $adapter;
+    protected $adapter;
 
     /**
      * @var array
@@ -61,6 +61,17 @@ class CacheManager implements CacheInterface
     {
         return $this->adapter->set($key, $value, $ttl);
     }
+
+    /**
+     * @param $key
+     * @param null $ttl
+     * @return bool
+     */
+    public function expire($key,$ttl = null):bool
+    {
+        return $this->adapter->expire($key, $ttl);
+    }
+
 
     /**
      * {@inheritDoc}
@@ -128,5 +139,8 @@ class CacheManager implements CacheInterface
     {
         $this->adapter = $adapter;
     }
+
+
+
 }
 

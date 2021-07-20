@@ -155,4 +155,9 @@ class ArrayAdapter extends AbstractAdapter
     {
         $this->data = $data;
     }
+
+    public function expire($key, $ttl = null): bool
+    {
+        // TODO: Implement expire() method.
+    }
 }

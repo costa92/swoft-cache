@@ -66,6 +66,18 @@ class RedisAdapter extends AbstractAdapter
     }
 
     /**
+     * @param $key
+     * @param null $ttl
+     */
+    public function expire($key,$ttl=null):bool
+    {
+        $cacheKey = $this->getCacheKey($key);
+        $ttl   = $this->formatTTL($ttl);
+        return $this->redis->expire($cacheKey,$ttl);
+    }
+
+
+    /**
      * @param string       $key
      * @param mixed        $value
      * @param null|integer $ttl

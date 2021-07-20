@@ -232,4 +232,9 @@ class MemTableAdapter extends AbstractAdapter
     {
         $this->size = $size;
     }
+
+    public function expire($key, $ttl = null): bool
+    {
+        // TODO: Implement expire() method.
+    }
 }
