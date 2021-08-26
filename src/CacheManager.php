@@ -72,7 +72,14 @@ class CacheManager implements CacheInterface
         return $this->adapter->expire($key, $ttl);
     }
 
-
+    /***
+     * @param $key
+     * @return mixed
+     */
+    public function incr($key)
+    {
+        return $this->adapter->incr($key);
+    }
     /**
      * {@inheritDoc}
      */
