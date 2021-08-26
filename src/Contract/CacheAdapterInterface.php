@@ -64,4 +64,11 @@ interface CacheAdapterInterface extends CacheInterface
      */
     public function expire($key,$ttl = null): bool;
 
+
+    /**
+     * @param $key
+     * @return mixed
+     */
+    public function incr($key);
+
 }

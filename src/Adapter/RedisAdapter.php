@@ -68,6 +68,7 @@ class RedisAdapter extends AbstractAdapter
     /**
      * @param $key
      * @param null $ttl
+     * @return bool
      */
     public function expire($key,$ttl=null):bool
     {
@@ -177,5 +178,19 @@ class RedisAdapter extends AbstractAdapter
         }
 
         return $rows;
+    }
+
+    /**
+     * @param $key
+     * @return mixed|void
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
+    public function incr($key)
+    {
+        $cacheKey = $this->getCacheKey($key);
+        $inrCount = $this->get($key,0);
+        ++$inrCount;
+        $ttl = $this->redis->ttl($cacheKey);
+        return $this->set($key,$inrCount,$ttl);
     }
 }

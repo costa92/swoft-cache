@@ -221,4 +221,9 @@ class MultiFileAdapter extends AbstractAdapter
     {
         // TODO: Implement expire() method.
     }
+
+    public function incr($key)
+    {
+        // TODO: Implement incr() method.
+    }
 }

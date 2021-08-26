@@ -89,6 +89,8 @@ class CacheManager implements CacheInterface
         return $this->adapter->delete($key);
     }
 
+
+
     /**
      * Wipes clean the entire cache's keys.
      *

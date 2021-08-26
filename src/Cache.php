@@ -22,6 +22,7 @@ use Swoft;
  * @method static bool set($key, $value, $ttl = null)
  * @method static get($key, $default = null)
  * @method static delete($key)
+ * @method static incr($key)
  * @method static expire($key,$ttl = null)
  * @method static bool clear()
  * @method static array getMultiple($keys, $default = null)

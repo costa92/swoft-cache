@@ -58,4 +58,8 @@ trait CoFileSystemTrait
     {
         return unlink($file);
     }
+
+    public function incr($key){
+
+    }
 }
